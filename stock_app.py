@@ -141,8 +141,17 @@ def get_stock_data_us(symbol, period='3mo'):
     return pd.DataFrame()
 
 
-def get_stock_data_em(stock_code):
+def get_stock_data_em(stock_code, period='1年'):
     """获取A股K线数据 through 腾讯K线API"""
+    # 根据周期计算天数
+    period_days = {
+        '1年': 365,
+        '6个月': 180,
+        '3个月': 90,
+        '1个月': 30
+    }
+    days = period_days.get(period, 365)
+
     try:
         # 判断市场前缀
         if stock_code.startswith('6'):
@@ -156,7 +165,7 @@ def get_stock_data_em(stock_code):
         # 使用腾讯K线API
         url = f"https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
         params = {
-            'param': f"{prefix}{stock_code},day,,,90,qfq",
+            'param': f"{prefix}{stock_code},day,,,{days},qfq",
             '_var': 'kline_dayqfq'
         }
         headers = {'User-Agent': 'Mozilla/5.0'}
@@ -784,6 +793,7 @@ def analyze():
     data = request.form
     stock_code = data.get('stock_code', '').strip()
     market = data.get('market', 'auto')  # auto, us, cn, hk
+    period = data.get('period', '1年')  # 1年, 6个月, 3个月, 1个月
 
     if not stock_code:
         return jsonify({'error': '请输入股票代码'}), 400
@@ -807,7 +817,7 @@ def analyze():
             currency = 'HK$'
     else:
         # 尝试东方财富API (A股)
-        df = get_stock_data_em(stock_code)
+        df = get_stock_data_em(stock_code, period)
         if not df.empty:
             # 获取A股名称
             stock_name = get_stock_name_cn(stock_code) or stock_code

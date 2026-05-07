@@ -856,6 +856,12 @@
                     <option value="hk">港股</option>
                     <option value="us">美股</option>
                 </select>
+                <select id="period">
+                    <option value="1年">1年</option>
+                    <option value="6个月">6个月</option>
+                    <option value="3个月">3个月</option>
+                    <option value="1个月">1个月</option>
+                </select>
                 <button type="submit" id="submitBtn">开始分析</button>
             </form>
 
@@ -1206,6 +1212,7 @@
 
             const stockCode = document.getElementById('stockCode').value.trim();
             const market = document.getElementById('market').value;
+            const period = document.getElementById('period').value;
             const submitBtn = document.getElementById('submitBtn');
 
             if (!stockCode) return;
@@ -1222,6 +1229,7 @@
                 const formData = new FormData();
                 formData.append('stock_code', stockCode);
                 formData.append('market', market);
+                formData.append('period', period);
 
                 setProgressStep(2);
                 const response = await fetch('/stock/analyze', {
