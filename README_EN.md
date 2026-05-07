@@ -16,6 +16,12 @@ AI-Kline is a Python-based A-share stock analysis tool that combines traditional
 - **AI Analysis**: DeepSeek AI analyzes stock data and predicts future trends and probability of rise
 - **Web Interface**: Clean and intuitive web interface for stock code input and analysis results
 
+### Advantages
+
+- **Extremely Low Hardware Requirements**: Runs smoothly on just 1 CPU core and 512MB RAM, perfect for personal servers or low-spec cloud instances
+- **Minimal Token Consumption**: Each analysis consumes only a few thousand tokens, extremely low cost (<$0.001 per analysis)
+- **Simple Deployment**: No GPU or Docker required, one-click startup
+
 ## Tech Stack
 
 - **Backend**: Flask Web Framework
@@ -46,6 +52,7 @@ STOCK_AI/
 
 - Python 3.8+
 - Linux server (CentOS/Ubuntu)
+- **Hardware**: 1 CPU core, 512MB RAM
 
 ### Installation Steps
 
@@ -113,9 +120,13 @@ server {
    - Candlestick and technical charts
    - AI analysis results and probability of rise prediction
 
-## Screenshot
+## Screenshots
 
-![Web Interface](static/images/image.png)
+![Image #1](https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-05-07%2FMiniMax-M2.7%2F2031917385446859654%2F425feeec7fb0156d1cc549cd0071c66a929708dccb9f839f8ea0d6cd0ffd653d..jpeg?Expires=1778229251&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=hJU60BikdUAoIGzaChWuTiKSG7k%3D)
+
+![Image #2](https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-05-07%2FMiniMax-M2.7%2F2031917385446859654%2F6e4aba51c2d064fec227dbdbb9f3eef35f8f1d3227bf227499d224ffd15ab285..jpeg?Expires=1778229251&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=POX0xwEgcR5vj2hB3y1MH29Wpj4%3D)
+
+![Image #3](https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/ccv2%2F2026-05-07%2FMiniMax-M2.7%2F2031917385446859654%2F13265322478e2c04f5762606e8e45aba5cc4610731d3bbf1cd7d51f6591e1a37..jpeg?Expires=1778229252&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=Z%2BkYRaJFY0P%2BIOdXLjxTNExibkI%3D)
 
 ## Disclaimer
 
